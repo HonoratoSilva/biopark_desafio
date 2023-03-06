@@ -25,7 +25,6 @@ export const addContratos = (req, res) => {
     ];
 
     db.query(q, [values], (err) => {
-        console.log(err)
         if(err) return res.json(err);
 
         return res.status(200).json("Contrato criado com sucesso.");

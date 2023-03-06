@@ -18,29 +18,13 @@ export const addApartamentos = (req, res) => {
         req.body.numero_apartamento,
         req.body.edificio_id_edificio
     ];
-    console.log({values})
+
     db.query(q, [values], (err) => {
-        console.log(err)
         if(err) return res.json(err);
 
         return res.status(200).json("Apartamento criado com sucesso.");
     })
 };
-
-// export const updateStatusApartamentos = (req, res) => {
-//     const q = 
-//     "UPDATE apartamento SET `status` = ?, WHERE `id_apartamento` = ?";
-
-//     const values = [
-//         req.body.status,
-//     ];
-
-//     db.query(q, [...values, req.params.id_apartamento], (err) => {
-//         if (err) return res.json(err);
-
-//         return  res.status(200).join("Usuário atualizado com sucesso.");
-//     });
-// };
 
 export const deleteApartamentos = (req, res) => {
     const q = "DELETE FROM apartamento WHERE `id_apartamento` = ?";
