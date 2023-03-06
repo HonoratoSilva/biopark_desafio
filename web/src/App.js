@@ -58,10 +58,10 @@ function App() {
         <FormLocatario />
         <Title>FAÇA SEU CONTRATO</Title>
         <FormContrato />
-        <Title>APARTAMENTOS</Title>
-        <TabelaApartamento apartamentos={apartamentos} />
         <Title>LOCATARIOS HOSPEDADOS</Title>
         <TabelaAluguel contratos={contratos} /> 
+        <Title>APARTAMENTOS</Title>
+        <TabelaApartamento apartamentos={apartamentos} />
       </Container>
       <ToastContainer autoClose={3000} position={toast.POSITION.TOP_RIGHT} />
       <GlobalStyle />
