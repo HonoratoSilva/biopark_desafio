@@ -56,7 +56,7 @@ const Tabela = ({ apartamentos }) => {
             <Tbody>
                 {apartamentos.map((item, i) => (
                     <Tr key={i}>
-                        <Td width="40%">Nº {item.edificio_id_edificio}</Td>
+                        <Td width="40%">Nº {item.numero_edificio}</Td>
                         <Td width="40%">Ap. {item.numero_apartamento}</Td>
                         <Td>
                             <P>{item.status}</P>

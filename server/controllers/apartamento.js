@@ -2,7 +2,8 @@ import { db } from "../db.js";
 
 export const getApartamentos = (_, res) => {
 
-    const q = `SELECT * FROM apartamento`;
+    const q = `SELECT * FROM apartamento
+    INNER JOIN edificio ON edificio.id_edificio=apartamento.edificio_id_edificio`;
 
     db.query(q, (err, data) => {
         if (err) return res.json(err);
