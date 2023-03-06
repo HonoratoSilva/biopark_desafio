@@ -45,20 +45,20 @@ export const P = styled.p`
     color: #458510;
 `;
 
-const Tabela = ({ contratos }) => {
+const Tabela = ({ contratos, setContratos }) => {
 
-    // const handleDelete= async (id_contrato) => {
-    //     await axios
-    //         .delete("http://localhost:8800/contrato/" + id_contrato)
-    //         .then(({ data }) => {
-    //             const newArray = contratos.filter((edificio) => edificio.id_apartamento !== id_apartamento);
+    const handleDelete= async (id_contrato) => {
+        await axios
+            .delete("http://localhost:8800/contrato/" + id_contrato)
+            .then(({ data }) => {
+                const newArray = contratos.filter((contrato) => contrato.id_contrato !== id_contrato);
 
-    //             setEdificios(newArray);
-    //             toast.success(data);
-    //         }).catch(({ data }) => toast.error(data));
+                setContratos(newArray);
+                toast.success(data);
+            }).catch(({ data }) => toast.error(data));
 
-    //     //setOnEdit(null);
-    // };
+        //setOnEdit(null);
+    };
 
     return (
         <Table>
@@ -83,7 +83,7 @@ const Tabela = ({ contratos }) => {
                         </Td>
                         <Td></Td>
                         <Td alignCenter width="5%">
-                            {/* <FaTrash onClick={() => handleDelete(item.id_apartamento)} /> */}
+                            <FaTrash onClick={() => handleDelete(item.id_contrato)} />
                         </Td>
                     </Tr>
                 ))}

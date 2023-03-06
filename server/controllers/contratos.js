@@ -17,16 +17,6 @@ export const getContratos = (_, res) => {
 
 export const addContratos = (req, res) => {
     const q = "INSERT INTO contrato(`aluguel`, `apartamento_id_apartamento`, `locatario_id_locatario`) VALUES(?)";
-    const updateApartamento = "UPDATE apartamento SET status = 'alugado', WHERE `id_apartamento` = ?";
-
-    const valuesToUpdateApartamento = [
-        req.body.apartamento_id_apartamento,
-    ]
-
-    db.query(updateApartamento, [valuesToUpdateApartamento], (err) => {
-        console.log(err)
-        if(err) return res.json(err);
-    })
 
     const values = [
         req.body.aluguel,
@@ -41,3 +31,14 @@ export const addContratos = (req, res) => {
         return res.status(200).json("Contrato criado com sucesso.");
     });
 };
+
+export const deleteContratos = (req, res) => {
+    const q = "DELETE FROM contrato WHERE `id_contrato` = ?";
+
+    db.query(q, [req.params.id_contrato], (err) => {
+        if (err) return res.json(err);
+
+        return res.status(200).json("Contrato deletado com sucesso.");
+
+    })
+}

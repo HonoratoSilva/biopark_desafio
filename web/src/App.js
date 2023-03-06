@@ -4,7 +4,8 @@ import Form from "./components/Form.js";
 import FormApartamento from "./components/FormApartamento.js";
 import FormLocatario from "./components/FormLocatario.js";
 import FormContrato from "./components/FormContrato.js"
-import Tabela from "./components/Tabela.js";
+import TabelaAluguel from "./components/TabelaAluguel.js";
+import TabelaApartamento from "./components/TabelaApartamento.js";
 import { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -24,6 +25,7 @@ const Title = styled.h2``;
 
 function App() {
   const [contratos, setContratos] = useState([]);
+  const [apartamentos, setApartamentos] = useState([]);
   // const [onEdit, setOnEdit] = useState(null);
 
   const getContratos = async () => {
@@ -36,6 +38,16 @@ function App() {
   };
   getContratos();
 
+  const getApartamentos = async () => {
+    try {
+      const res = await axios.get("http://localhost:8800/apartamento/");
+      setApartamentos(res.data);
+    } catch (error) {
+      toast.error(error);
+    }
+  };
+  getApartamentos();
+
   return (
     <>
       <Container>
@@ -44,8 +56,8 @@ function App() {
         <FormApartamento />
         <FormLocatario />
         <FormContrato />
-
-        <Tabela contratos={contratos} /> 
+        <TabelaApartamento apartamentos={apartamentos} />
+        <TabelaAluguel contratos={contratos} /> 
       </Container>
       <ToastContainer autoClose={3000} position={toast.POSITION.TOP_RIGHT} />
       <GlobalStyle />

@@ -1,11 +1,6 @@
 import { db } from "../db.js";
 
 export const getApartamentos = (_, res) => {
-    // const q = `SELECT id_apartamento, numero_apartamento, aluguel, edificio.numero_edificio, locatario.nome 
-    // FROM apartamento 
-    // INNER JOIN edificio ON edificio.id_edificio=apartamento.edificio_id_edificio
-    // INNER JOIN locatario ON locatario.id_locatario=apartamento.locatario_id_locatario`;
-    //LEFT JOIN locatario ON locatario.id_locatario=apartamento.locatario_id_locatario
 
     const q = `SELECT * FROM apartamento`;
 
@@ -53,7 +48,7 @@ export const deleteApartamentos = (req, res) => {
     db.query(q, [req.params.id_apartamento], (err) => {
         if (err) return res.json(err);
 
-        return res.status(200).json("Usuário deletado com sucesso.");
+        return res.status(200).json("Apartamento deletado com sucesso.");
 
     })
 }
