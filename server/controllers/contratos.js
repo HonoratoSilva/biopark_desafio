@@ -18,6 +18,17 @@ export const getContratos = (_, res) => {
 export const addContratos = (req, res) => {
     const q = "INSERT INTO contrato(`aluguel`, `apartamento_id_apartamento`, `locatario_id_locatario`) VALUES(?)";
 
+    const updateDisponibilidadeApartamento = `UPDATE apartamento SET status = "alugado" WHERE id_apartamento = ?`;
+
+    const valuesToUpdate = [
+        req.body.apartamento_id_apartamento,
+    ]; 
+
+    db.query(updateDisponibilidadeApartamento, [valuesToUpdate], (err) => {
+        console.log(err)
+        if(err) return res.json(err);
+    });
+
     const values = [
         req.body.aluguel,
         req.body.apartamento_id_apartamento,

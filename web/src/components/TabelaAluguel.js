@@ -73,7 +73,7 @@ const Tabela = ({ contratos, setContratos }) => {
                         <Td width="40%">{item.locatario_nome !== null ? item.locatario_nome : ''}</Td>
                         <Td width="40%">R$ {item.aluguel}</Td>
                         <Td>
-                            <P>{item.apartamento_status !== null ? "alugado" : "disponivel"}</P>
+                            <P>{item.apartamento_status}</P>
                         </Td>
                         <Td></Td>
                         <Td alignCenter width="5%">

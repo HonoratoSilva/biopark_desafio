@@ -94,9 +94,6 @@ const FormApartamento = ({ onEdit }) => {
         .catch(({ data }) => toast.error(data));
     }
 
-    // apartamento.numero_apartamento.value = "";
-    // apartamento.aluguel = "";
-    // apartamento.numero_edificio = "";
   };
 
   const getApartamentos = async () => {
@@ -127,8 +124,7 @@ const FormApartamento = ({ onEdit }) => {
       <InputArea>
       <label>Apartamento:  </label>
         <Select name="apartamento_id_apartamento">
-         {/* FAZER FILTRO AQUI PARA APARTAMENTOS DISPONIVEIS */}
-          {apartamentos.map((apartamento) => (
+          {apartamentos.filter(apartamento => apartamento.status === 'disponivel').map((apartamento) => (
             <option key={apartamento.id_apartamento} value={apartamento.id_apartamento}>{apartamento.numero_apartamento}</option>
           ))}
         </Select>
