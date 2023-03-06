@@ -23,7 +23,7 @@ Sistema para cadastrar edificios e apartamentos, onde deve-se alugar e visualiza
 
 ### Iniciar o projeto
 
-- Entrar no diretório server e web e dar npm install
+- Entrar nos diretórios server e web e dar npm install, para instalar as dependencias necessárias para rodar o projeto
 
 - Entrar na pasta server para rodar o backend com npm start
 
