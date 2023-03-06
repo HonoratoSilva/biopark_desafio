@@ -1,8 +1,5 @@
 import React from "react";
-import axios from "axios";
 import styled from "styled-components";
-import { FaTrash } from "react-icons/fa";
-import { toast } from "react-toastify";
 
 const Table = styled.table`
     width: 100%;
@@ -47,19 +44,6 @@ export const P = styled.p`
 
 const Tabela = ({ apartamentos }) => {
 
-    // const handleDelete= async (id_contrato) => {
-    //     await axios
-    //         .delete("http://localhost:8800/contrato/" + id_contrato)
-    //         .then(({ data }) => {
-    //             const newArray = contratos.filter((edificio) => edificio.id_apartamento !== id_apartamento);
-
-    //             setEdificios(newArray);
-    //             toast.success(data);
-    //         }).catch(({ data }) => toast.error(data));
-
-    //     //setOnEdit(null);
-    // };
-
     return (
         <Table>
             <Thead>
@@ -76,10 +60,6 @@ const Tabela = ({ apartamentos }) => {
                         <Td width="40%">Ap. {item.numero_apartamento}</Td>
                         <Td>
                             <P>{item.status}</P>
-                        </Td>
-                        <Td></Td>
-                        <Td alignCenter width="5%">
-                            {/* <FaTrash onClick={() => handleDelete(item.id_apartamento)} /> */}
                         </Td>
                     </Tr>
                 ))}

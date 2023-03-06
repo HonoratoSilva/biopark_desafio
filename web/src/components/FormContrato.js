@@ -27,6 +27,14 @@ const Input = styled.input`
   height: 40px;
 `;
 
+const Select = styled.select`
+  width: 120px;
+  padding: 0 10px;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  height: 40px;
+`;
+
 const Button = styled.button`
   padding: 10px;
   cursor: pointer;
@@ -118,21 +126,21 @@ const FormApartamento = ({ onEdit }) => {
 
       <InputArea>
       <label>Apartamento:  </label>
-        <select name="apartamento_id_apartamento">
+        <Select name="apartamento_id_apartamento">
          {/* FAZER FILTRO AQUI PARA APARTAMENTOS DISPONIVEIS */}
           {apartamentos.map((apartamento) => (
             <option key={apartamento.id_apartamento} value={apartamento.id_apartamento}>{apartamento.numero_apartamento}</option>
           ))}
-        </select>
+        </Select>
       </InputArea>
 
       <InputArea>
       <label>Locatário:  </label>
-        <select name="locatario_id_locatario">
+        <Select name="locatario_id_locatario">
           {locatarios.map((locatario) => (
             <option key={locatario.id_locatario} value={locatario.id_locatario}>{locatario.nome}</option>
           ))}
-        </select>
+        </Select>
       </InputArea>
 
       <InputArea>

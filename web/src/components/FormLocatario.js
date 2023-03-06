@@ -40,9 +40,9 @@ const Button = styled.button`
 const Label = styled.label``;
 
 const FormApartamento = ({ onEdit }) => {
-    const [edificios, setEdificios] = useState([]);
-    const [apartamentos, setApartamentos] = useState([]);
-    const ref = useRef();
+  const [edificios, setEdificios] = useState([]);
+  const [apartamentos, setApartamentos] = useState([]);
+  const ref = useRef();
 
   useEffect(() => {
     if (onEdit) {
@@ -59,7 +59,11 @@ const FormApartamento = ({ onEdit }) => {
 
     const locatario = ref.current;
 
-    if (!locatario.nome.value || !locatario.telefone.value || !locatario.email.value) {
+    if (
+      !locatario.nome.value ||
+      !locatario.telefone.value ||
+      !locatario.email.value
+    ) {
       return toast.warn("Preencha todos os campos!");
     }
 
@@ -73,22 +77,16 @@ const FormApartamento = ({ onEdit }) => {
         .then(({ data }) => toast.success(data))
         .catch(({ data }) => toast.error(data));
     } else {
-        console.log(handleSubmit);
+      console.log(handleSubmit);
       await axios
         .post("http://localhost:8800/locatarios/", {
-            nome: locatario.nome.value,
-            telefone: locatario.telefone.value,
-            email: locatario.email.value,
+          nome: locatario.nome.value,
+          telefone: locatario.telefone.value,
+          email: locatario.email.value,
         })
         .then(({ data }) => toast.success(data))
         .catch(({ data }) => toast.error(data));
     }
-
-    // apartamento.numero_apartamento.value = "";
-    // apartamento.aluguel = "";
-    // apartamento.numero_edificio = "";
-
-    
   };
 
   const getEdificios = async () => {

@@ -27,6 +27,14 @@ const Input = styled.input`
   height: 40px;
 `;
 
+const Select = styled.select`
+  width: 120px;
+  padding: 0 10px;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  height: 40px;
+`;
+
 const Button = styled.button`
   padding: 10px;
   cursor: pointer;
@@ -74,15 +82,10 @@ const FormApartamento = ({ apartamentos, onEdit }) => {
         .post("http://localhost:8800/apartamento/", {
           numero_apartamento: apartamento.numero_apartamento.value,
           edificio_id_edificio: apartamento.edificio_id_edificio.value,
-          // locatario_id_locatario: apartamento.locatario_id_locatario.value,
         })
         .then(({ data }) => toast.success(data))
         .catch(({ data }) => toast.error(data));
     }
-
-    // apartamento.numero_apartamento.value = "";
-    // apartamento.aluguel = "";
-    // apartamento.numero_edificio = "";
   };
 
   const getEdificios = async () => {
@@ -100,11 +103,11 @@ const FormApartamento = ({ apartamentos, onEdit }) => {
     <FormContainer ref={ref} onSubmit={handleSubmit}>
       <InputArea>
       <label>Edificio:  </label>
-        <select name="edificio_id_edificio">
+        <Select name="edificio_id_edificio">
           {edificios.map((edificio) => (
             <option key={edificio.id_edificio} value={edificio.id_edificio}>{edificio.numero_edificio}</option>
           ))}
-        </select>
+        </Select>
       </InputArea>
 
       <InputArea>

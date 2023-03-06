@@ -26,9 +26,6 @@ export const Th = styled.th`
     padding-bottom: 5px;
     padding-left: 5px;
 
-    @media (max-width: 500px) {
-        ${(props) => props.onlyWeb && "display: none"} 
-    }
 `;
 
 export const Td = styled.td`
@@ -36,9 +33,6 @@ export const Td = styled.td`
     text-align: ${(props) => (props.alignCenter ? "center" : "start")};
     width: ${(props) => (props.width ? props.width : "auto")};
 
-    @media (max-width: 500px) {
-        ${(props) => props.onlyWeb && "display: none"} 
-    }
 `;
 
 export const P = styled.p`
@@ -79,7 +73,7 @@ const Tabela = ({ contratos, setContratos }) => {
                         <Td width="40%">{item.locatario_nome !== null ? item.locatario_nome : ''}</Td>
                         <Td width="40%">R$ {item.aluguel}</Td>
                         <Td>
-                            <P>{item.apartamento_status}</P>
+                            <P>{item.apartamento_status !== null ? "alugado" : "disponivel"}</P>
                         </Td>
                         <Td></Td>
                         <Td alignCenter width="5%">

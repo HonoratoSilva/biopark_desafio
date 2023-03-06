@@ -6,7 +6,7 @@ import FormLocatario from "./components/FormLocatario.js";
 import FormContrato from "./components/FormContrato.js"
 import TabelaAluguel from "./components/TabelaAluguel.js";
 import TabelaApartamento from "./components/TabelaApartamento.js";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
@@ -26,7 +26,6 @@ const Title = styled.h2``;
 function App() {
   const [contratos, setContratos] = useState([]);
   const [apartamentos, setApartamentos] = useState([]);
-  // const [onEdit, setOnEdit] = useState(null);
 
   const getContratos = async () => {
     try {
@@ -53,10 +52,15 @@ function App() {
       <Container>
         <Title>CADASTRAR EDIFÍCIOS</Title>
         <Form />
+        <Title>CADASTRAR APARTAMENTO</Title>
         <FormApartamento />
+        <Title>CADASTRAR LOCATÁRIO</Title>
         <FormLocatario />
+        <Title>FAÇA SEU CONTRATO</Title>
         <FormContrato />
+        <Title>APARTAMENTOS</Title>
         <TabelaApartamento apartamentos={apartamentos} />
+        <Title>LOCATARIOS HOSPEDADOS</Title>
         <TabelaAluguel contratos={contratos} /> 
       </Container>
       <ToastContainer autoClose={3000} position={toast.POSITION.TOP_RIGHT} />
