@@ -17,7 +17,9 @@ Sistema para cadastrar edificios e apartamentos, onde deve-se alugar e visualiza
 
 - Instalar o programa MySQL: <a href="https://dev.mysql.com/downloads/windows/installer/8.0.html">Download</a>
 
-- Rodar o script "briopark_edificios"
+- Na pasta files encontra-se o arquivo "briopark_edificios.sql"
+
+- Importar o script "briopark_edificios.sql" dentro do programa MySQL Workbench
 
 ### Iniciar o projeto
 
